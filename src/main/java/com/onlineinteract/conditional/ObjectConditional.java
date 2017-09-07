@@ -12,16 +12,16 @@ import com.onlineinteract.conditional.model.TypeB;
 
 public class ObjectConditional<T extends Type> {
 
-	private Map<String, Command> map = new HashMap<>();
+	private Map<String, Command> commandMap = new HashMap<>();
 	
 	public ObjectConditional() {
-		map.put("TypeA", new CommandA());
-		map.put("TypeB", new CommandB());
-		map.put("TypeC", new CommandC());
+		commandMap.put("TypeA", new CommandA());
+		commandMap.put("TypeB", new CommandB());
+		commandMap.put("TypeC", new CommandC());
 	}
 
 	public void processType(T type) {
-		map.get(type.getClass().getSimpleName()).exec(type);
+		commandMap.get(type.getClass().getSimpleName()).exec(type);
 	}
 
 	public static void main(String[] args) {
